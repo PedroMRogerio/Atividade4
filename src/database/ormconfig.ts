@@ -3,13 +3,13 @@ import { join } from "path"
 
 const dataBase = new DataSource({
     type: 'sqlite',
-    database: process.env.DATABASE || './src/database/database.sqlite',
-    entities: [
-      join(__dirname, '..', 'models/*.{ts,js}')
-    ],
+    database: './src/database/database.sqlite',
     logging: true,
-    synchronize: true
-  })
+    synchronize: true,
+    entities: [
+        join(__dirname, '..', 'models/*.{ts,js}')
+    ]
+})
 
 dataBase.initialize()
 .then(() => {
